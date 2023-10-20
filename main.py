@@ -5,7 +5,7 @@ import requests
 
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@172.20.0.3:5432/question_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://root:root@postgres_db:5432/question_db'
 db = SQLAlchemy(app)
 
 
