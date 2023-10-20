@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  app:
+    command: "poetry run python main.py"
+    build: .
+    volumes:
+      - .:/usr/src/app/
+    ports:
+      - "8000:5000"
+    depends_on:
+      - db
+  db:
+    container_name: postgres_db
+    image: postgres
+
+    restart: always
+    environment:
+      POSTGRES_DB: question_db
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always 
+    environment:
+      PGADMIN_DEFAULT_EMAIL: root@root.com
+      PGADMIN_DEFAULT_PASSWORD: root
+      # PGADMIN_LISTEN_PORT = 80
+    ports:
+      - "5050:80"
+
+networks:
+  my-network:
