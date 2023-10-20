@@ -2,7 +2,7 @@
 
 *Скачивание проета:*
 ```
-git clone <url проекта>
+git clone git@github.com:Viktor-Ordyntsev/flas_app.git
 ```
 *Сборка проета:*
 ```
